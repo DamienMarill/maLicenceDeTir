@@ -1,0 +1,10 @@
+<div class="settings-button">
+  <button class="btn-secondary relative z-50" [class.tourbilol]="tourbilol" (click)="toggle()">
+    <fa-icon *ngIf="!active" [icon]="faFont.faEllipsisVertical"></fa-icon>
+    <fa-icon *ngIf="active" [icon]="faFont.faTimes"></fa-icon>
+  </button>
+</div>
+
+<ng-template #menu>
+  <app-menu></app-menu>
+</ng-template>

@@ -1,1 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+[click]{
+  cursor: pointer;
+}
+
+html{
+  @apply h-full;
+}
+
+html, body {
+  font-family: 'DM Sans', sans-serif;
+  @apply bg-dark-100 text-dark-900 m-0 p-0 h-full overflow-auto;
+}
+body.dark{
+  @apply bg-dark-800 text-dark-100;
+}
+
+.layer .content{
+  box-shadow: 0 -5px 7px -5px #333;
+}
+body.dark .layer .content{
+  box-shadow: 0 -5px 7px -5px #888;
+}
+
+*:focus {
+  outline-color: transparent;
+}
+
+button:not(.btn-close) {
+  @apply btn cursor-pointer;
+}
+button.btn-close {
+  @apply ml-2 cursor-pointer;
+}
+
+section {
+  @apply p-5 rounded-lg shadow-lg shadow-dark-200 dark:shadow-dark-700 backdrop-blur-sm bg-white/20 dark:bg-dark-900/90;
+}
+
+.settings-button{
+  @apply flex gap-3 m-5 h-16;
+
+  a, button {
+    @apply fixed bottom-5 right-5 rounded-full flex items-center justify-center w-16 h-16 flex items-center justify-center text-3xl;
+  }
+}
+
+input, select {
+  @apply py-1 px-3 rounded-md border-dark-900 outline-0 shadow-md shadow-dark-200 dark:shadow-dark-700 bg-dark-50 dark:bg-dark-600;
+}
+
+select:focus-within {
+  @apply rounded-b-none;
+}
+
+.form-group {
+  @apply flex flex-col mb-3;
+
+  input, .input{
+    @apply ml-2;
+  }
+}
+
+h1{
+  @apply text-3xl font-bold;
+}
+h2{
+  @apply text-2xl font-bold;
+}
+h4{
+  @apply text-lg font-bold mb-2;
+}
+
+.backdrop{
+  @apply backdrop-blur-sm bg-dark-900/60 absolute top-0 left-0 right-0 bottom-0 z-50 w-full h-full;
+}
+
+
+body.dark .licence{
+  background-image: url("/assets/Logo-Coq-FFTIR-dark.png");
+}
+.licence{
+  background-image: url("/assets/Logo-Coq-FFTIR.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

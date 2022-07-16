@@ -1,0 +1,47 @@
+<div class="pt-5" *ngIf="dataService.licence && licenceIsValid()">
+  <div class="flex justify-between mx-5 mb-3">
+    <img src="assets/Logo-FFTIR.png" alt="FFTir" class="h-16">
+    <img src="assets/fiocchi.png" alt="Fiocchi" class="h-16">
+  </div>
+  <div class="licence mb-5">
+    <p class="text-center mb-3">
+      <span class="text-fftir-blue text-2xl">Fédération Française de Tir</span><br>
+      <span class="text-fftir-red uppercase text-xl">licence fédérale</span><br>
+      <span class="text-fftir-blue text-xl">Saison {{dataService.licence.libSeason}}</span><br>
+      <span class="text-fftir-red text-sm">Valable du {{dataService.licence.startSeasonFormat}} au {{dataService.licence.endSeasonCustomFormat}}</span>
+    </p>
+    <div class="flex justify-center items-center gap-3 mb-3">
+      <img [src]="dataService.licence.licPicture" [alt]="dataService.licence.licenseNumber+'-photo'">
+      <div class="font-bold">
+        <p>Nom : <span class="uppercase">{{ dataService.licence.lastname }}</span></p>
+        <p>Prénom : {{ dataService.licence.firstname }}</p>
+        <p>N° Licence : {{ dataService.licence.licenseNumber}}</p>
+        <p>Né(e) le : {{ dataService.licence.birthDateFormat }}</p>
+        <p>N° Club : {{ dataService.licence.clubCode }}</p>
+        <p>Cat. Age : {{ dataService.licence.category }}</p>
+      </div>
+    </div>
+    <p class="text-center text-fftir-blue text-sm">F.F.Tir - 38 rue Brunel 75017 PARIS -<br> www.fftir.org - Tél : 01 58 05 45 45</p>
+  </div>
+  <div class="flex justify-center mb-10">
+    <button class="btn-gray" (click)="layerService.open(club)">Le club</button>
+  </div>
+  <div class="flex flex-col gap-5">
+    <button class="btn-primary text-center" (click)="layerService.open(ean)"><span class="text-2xl"><fa-icon class="mr-2" [icon]="faFont.faBarcode"></fa-icon>M'identifier</span></button>
+    <button class="btn-primary text-center" (click)="layerService.open(qr)"><span class="text-2xl"><fa-icon class="mr-2" [icon]="faFont.faQrcode"></fa-icon>Vérifier ma licence</span></button>
+  </div>
+</div>
+<div class="pt-5 flex justify-center items-center flex-col" *ngIf="!licenceIsValid()">
+  <p class="text-danger-700 text-3xl text-center mb-5">Votre licence a expiré, veuiller actualiser les données de l'application</p>
+  <a [routerLink]="['/login']" class="btn btn-primary text-2xl"><fa-icon class="mr-2" [icon]="faFont.faArrowsRotate"></fa-icon>Actualiser les données</a>
+</div>
+
+<ng-template #club>
+  <app-club></app-club>
+</ng-template>
+<ng-template #ean>
+  <app-ean></app-ean>
+</ng-template>
+<ng-template #qr>
+  <app-qr></app-qr>
+</ng-template>

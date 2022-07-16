@@ -1,0 +1,14 @@
+<div *ngIf="dataService.licence">
+  <div class="flex justify-center items-center mb-5">
+    <div class="p-2 rounded-lg bg-white">
+      <svg id="barcode"></svg>
+    </div>
+  </div>
+  <div class="alert-cyan flex flex-col gap-3 items-center">
+    <fa-icon class="text-2xl" [icon]="faFont.faInfoCircle"></fa-icon>
+    <p class="text-justify">
+      Ce code-barre contient votre numéro de licence et la saison de validité de votre licence.<br>
+      Certains clubs s'en servent pour que les adhérents puissent notifier de leur présence dans les locaux lorsqu'ils viennent s'entraîner.
+    </p>
+  </div>
+</div>

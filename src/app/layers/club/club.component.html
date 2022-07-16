@@ -1,0 +1,29 @@
+<div *ngIf="dataService.club">
+  <div class="flex justify-center h-20 mb-3" *ngIf="dataService.club.urlImage">
+    <img [src]="dataService.club.urlImage" [alt]="dataService.club.name">
+  </div>
+  <h2 class="text-center mb-3">{{ dataService.club.name }}</h2>
+  <div class="flex flex-col gap-1">
+    <p *ngIf="dataService.club.numTel"><fa-icon class="mr-2" [icon]="faFont.faPhone"></fa-icon> {{dataService.club.numTel}}</p>
+    <p *ngIf="dataService.club.email"><fa-icon class="mr-2" [icon]="faFont.faEnvelope"></fa-icon> {{dataService.club.email}}</p>
+    <p *ngIf="dataService.club.urlWebsite"><fa-icon class="mr-2" [icon]="faFont.faGlobe"></fa-icon> <a [href]="dataService.club.urlWebsite" target="_blank">{{dataService.club.urlWebsite}}</a></p>
+    <div class="flex mb-5">
+      <fa-icon class="mr-2" [icon]="faFont.faLocationDot"></fa-icon>
+      <div>
+        <p *ngIf="dataService.club.address1">{{dataService.club.address1}}</p>
+        <p *ngIf="dataService.club.address2">{{dataService.club.address2}}</p>
+        <p *ngIf="dataService.club.address3">{{dataService.club.address3}}</p>
+        <p>{{dataService.club.cdp}} {{dataService.club.city}}</p>
+      </div>
+    </div>
+    <div class="mb-5">
+      <p>N° d'affiliation fédéral : {{ dataService.club.fedAffNumber }}</p>
+      <p>Depuis le {{ dataService.club.fedAffDate | date : 'dd/MM/yyyy' }}</p>
+    </div>
+    <div>
+      <p *ngFor="let parent of dataService.club.parents"><span class="font-bold">{{parent.type}}</span> : <span class="capitalize">{{parent.entity.toLowerCase()}}</span></p>
+    </div>
+
+
+  </div>
+</div>

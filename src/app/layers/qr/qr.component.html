@@ -1,0 +1,19 @@
+<div *ngIf="dataService.licence">
+  <div class="flex justify-center items-center mb-5">
+    <div class="p-5 rounded-lg bg-white">
+      <div class="mb-3">
+        <qrcode [qrdata]="dataService.licence.urlQrCode" [margin]="0"></qrcode>
+      </div>
+      <div class="flex justify-center">
+        <a class="btn btn-secondary" [href]="dataService.licence.urlQrCode" target="_blank"><fa-icon class="mr-2" [icon]="faFont.faLink"></fa-icon>Ouvrir le lien</a>
+      </div>
+    </div>
+  </div>
+  <div class="alert-cyan flex flex-col gap-3 items-center">
+    <fa-icon class="text-2xl" [icon]="faFont.faInfoCircle"></fa-icon>
+    <p class="text-justify">
+      Ce QR code contiens un lien ITAC permettant de prouver l'authenticité  et la validité de votre licence.
+    </p>
+  </div>
+
+</div>
