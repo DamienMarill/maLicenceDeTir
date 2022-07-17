@@ -106,7 +106,7 @@ function genBtn(theme, colors){
 
 module.exports = {
   purge: {
-    enabled: false,
+    enabled: true,
     content: [
       './src/**/*.{html,ts}',
     ],

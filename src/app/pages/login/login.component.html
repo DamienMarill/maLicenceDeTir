@@ -1,8 +1,8 @@
 <div class="pt-10">
   <div class="flex justify-center items-center mb-7">
-    <img src="assets/favicon.svg" alt="MaLicenceDeTir" class="h-20 shadow-lg">
+    <a [routerLink]="['/']"><img src="assets/favicon.svg" alt="MaLicenceDeTir" class="h-20 shadow-lg"></a>
   </div>
-  <form [formGroup]="logginForm" (ngSubmit)="submit()" class="mb-10">
+  <form [formGroup]="logginForm" (ngSubmit)="submit()" class="mb-5">
     <div class="form-group">
       <label for="userId">numéro de licence ou email EDEN</label>
       <input type="text" class="form-control" id="userId" placeholder="" formControlName="userId">
@@ -20,7 +20,10 @@
       <fa-icon class="text-2xl" [icon]="faFont.faTimesCircle"></fa-icon><p>{{ errorMessage }}</p>
     </div>
   </form>
-  <div class="shadow-md rounded-md p-5 bg-dark-50 dark:bg-dark-900 flex flex-col gap-3 justify-center items-center mb-5">
+  <div class="mb-5 flex justify-center" *ngIf="dataService.islogged()">
+    <a [routerLink]="['/']" class="btn btn-secondary">Annuler l'actualisation</a>
+  </div>
+  <div class="shadow-md rounded-md p-5 mt-5 bg-dark-50 dark:bg-dark-900 flex flex-col gap-3 justify-center items-center mb-5">
     <img src="assets/logoeden.png" alt="EDEN" class="h-32 mb-5">
     <a href="https://eden.fftir.org/" target="_blank" class="btn btn-secondary">Aller sur EDEN</a>
   </div>

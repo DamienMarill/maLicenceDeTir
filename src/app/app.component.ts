@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {DataService} from "./shared/services/data.service";
 import {Router} from "@angular/router";
 import {DarkModeService} from "./shared/services/dark-mode.service";
+import {Plugins} from "@capacitor/core";
+const { SplashScreen } = Plugins;
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,7 @@ import {DarkModeService} from "./shared/services/dark-mode.service";
 })
 export class AppComponent {
   title = 'maLicenceDeTir';
+  private platform: any;
 
   constructor(
     private dataService: DataService,
@@ -20,5 +23,12 @@ export class AppComponent {
     if (dataService.islogged()){
       router.navigate(['/']);
     }
+  }
+
+  initializeApp() {
+    this.platform.ready().then(async () => {
+      // @ts-ignore
+      SplashScreen.hide();
+    });
   }
 }

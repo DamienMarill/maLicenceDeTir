@@ -6,7 +6,7 @@
       <span class="ml-3 font-medium text-gray-900 dark:text-gray-300">Mode sombre</span>
     </label>
   </div>
-  <div *ngIf="dataService.islogged" class="flex flex-col items-start gap-3 mb-5">
+  <div *ngIf="dataService.islogged()" class="flex flex-col items-start gap-3 mb-5">
     <a (tap)="layerService.close()" [routerLink]="['/login']" class="btn btn-primary text-xl"><fa-icon class="mr-2" [icon]="faFont.faArrowsRotate"></fa-icon>Actualiser les données</a>
     <button (tap)="logout()" class="btn-gray"><span class="text-xl"><fa-icon [icon]="faFont.faArrowRightFromBracket" class="mr-2"></fa-icon>Déconnexion</span></button>
   </div>
@@ -19,7 +19,10 @@
       <p><img src="assets/logo_pln_grand.png" class="h-5 mr-2 inline mb-1" alt="sttirplnLogo">Société de tir de Port-La-Nouvelle</p>
       <a href="https://tirpln.club" target="_blank">https://tirpln.club</a>
     </div>
-    <p class="text-center font-bold">Version : {{ version }}</p>
+    <div>
+      <p class="text-center mb-2"><a href="https://github.com/DamienMarill/maLicenceDeTir" target="_blank" class="btn btn-gray">Code source de l'application</a></p>
+      <p class="text-center font-bold">Version : {{ version }}</p>
+    </div>
   </div>
 </div>
 
