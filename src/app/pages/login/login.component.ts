@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
+    if (this.dataService.verifyTestAccount(this.logginForm.value)){
+      this.router.navigate(['/']);
+      return ;
+    }
     this.loading = true;
     this.http.post('https://eden.fftir.org/auth/login', this.logginForm.value)
       .toPromise().then(async (data: any) => {

@@ -3,7 +3,7 @@ export interface Club {
   address2: string;
   address3: string;
   adherentsNb: number;
-  adherentsNbNmois: number;
+  adherentsNbNmoins1: number;
   cdp: string;
   city: string;
   clubId: string | null;
@@ -14,11 +14,11 @@ export interface Club {
   fedAffDate: string;
   fedAffNumber: string;
   latitude: number;
-  licencePrices: {
+  licensePrices: {
     comLabel: string;
-    licenceCode: string;
-    licenceLabel: string;
-    licencePrice: number;
+    licenseCode: string;
+    licenseLabel: string;
+    licensePrice: number;
     ligLabel: string;
     partCom: number;
     partFftir: number;
@@ -38,16 +38,16 @@ export interface Club {
   parents: {
     code: string
     entity: string
-    label: string
+    level: string
     type: string
   }[];
-  sharedShootingRange: any[];
-  shootingRange: {
+  sharedShootingRanges: any[];
+  shootingRanges: {
     category: string;
     id: string | null;
     isActive: boolean;
     level: string;
-    ownserEntityLabel: string | null;
+    ownerEntityLabel: string | null;
     ownerEntityNumber: string | null;
     places: string;
     type: string;
@@ -55,7 +55,7 @@ export interface Club {
   timetable: string[];
   urlFacebook: string | null;
   urlImage: string | null;
-  urlInstagram: string | null;
+  urlInsta: string | null;
   urlTwitter: string | null;
   urlWebsite: string | null;
 }
