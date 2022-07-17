@@ -19,6 +19,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import {QRCodeModule} from "angularx-qrcode";
+import { ConfidentialiteComponent } from './pages/confidentialite/confidentialite.component';
 
 @Injectable()
 export class SwipeDownConfig extends HammerGestureConfig {
@@ -41,7 +42,8 @@ export class SwipeDownConfig extends HammerGestureConfig {
     QrComponent,
     MenuButtonComponent,
     LayerComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfidentialiteComponent
   ],
   imports: [
     BrowserModule,
