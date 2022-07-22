@@ -4,6 +4,7 @@ import {faInfoCircle, faSpinner, faSpinnerThird, faTimesCircle} from "@fortaweso
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {DataService} from "../../shared/services/data.service";
 import {Router} from "@angular/router";
+import * as Sentry from "@sentry/angular";
 
 @Component({
   selector: 'app-login',
@@ -67,11 +68,24 @@ export class LoginComponent implements OnInit {
 
   async getLicence(){
     return await this.http.get('https://eden.fftir.org/licence', this.getHeaders() )
-      .toPromise().then((data: any) => { return data})
+      .toPromise().then(
+        (data: any) => { return data},
+        error => {
+          this.errorMessage = "Erreur lors de la récupération de votre licence";
+          this.loading = false;
+          Sentry.captureException(error);
+        }
+      )
   }
   async getClub(){
-    return await this.http.get('https://eden.fftir.org/club/get_user_club', this.getHeaders() )
-      .toPromise().then((data: any) => { return data})
+    return await this.http.get('https://eden.fftir.org/entity/club/get_user_club', this.getHeaders() )
+      .toPromise().then((data: any) => { return data},
+        error => {
+          this.errorMessage = "Erreur lors de la récupération de votre club";
+          this.loading = false;
+          Sentry.captureException(error);
+        }
+      )
   }
 
   getHeaders(){
